@@ -1,0 +1,76 @@
+<form [formGroup]="courseForm" (ngSubmit)="onSubmit()">
+  <mat-card class="form-card">
+    <mat-card-title class="heading">Float-Course</mat-card-title>
+    <mat-form-field appearance="outline" class="margin">
+      <mat-label>Faculty ID</mat-label>
+      <input matInput placeholder="" formControlName="facId" required />
+      <mat-error>
+        Enter a valid ID
+      </mat-error> </mat-form-field
+    ><br />
+    <mat-form-field appearance="outline" class="margin">
+      <mat-label>Course Type</mat-label>
+      <mat-select formControlName="courseType" required>
+        <mat-option *ngFor="let c of course" [value]="c.value">
+          {{ c.viewValue }}
+        </mat-option>
+      </mat-select> </mat-form-field
+    ><br />
+    <mat-form-field appearance="outline" class="margin">
+      <mat-label>Course Name</mat-label>
+      <input matInput placeholder="" formControlName="courseName" required />
+      <mat-error>
+        Enter a valid course-name
+      </mat-error></mat-form-field
+    ><br />
+    <mat-form-field appearance="outline" class="margin">
+      <mat-label>Course ID</mat-label>
+      <input matInput placeholder="" formControlName="courseId" required />
+      <mat-error>
+        Enter a valid course ID
+      </mat-error></mat-form-field
+    ><br />
+    <mat-error *ngIf="message">{{ message }}</mat-error>
+    <mat-form-field appearance="outline" class="margin">
+      <mat-label>Credits</mat-label>
+      <mat-select formControlName="credits" required>
+        <mat-option *ngFor="let cred of credits" [value]="cred.value">
+          {{ cred.viewValue }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br />
+    <mat-form-field appearance="outline" class="margin">
+      <mat-label>Semester</mat-label>
+      <mat-select formControlName="sem" required>
+        <mat-option [value]="1">
+          1
+        </mat-option>
+        <mat-option [value]="2">
+          2
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br />
+    <mat-form-field>
+      <mat-label>Prerequisites</mat-label>
+      <mat-select #pre formControlName="prerequisite">
+        <mat-option *ngFor="let pre of prerequisites" [value]="pre.value">
+          {{ pre.viewValue }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br />
+    <button mat-raised-button color="primary" [disabled]="!courseForm.valid">
+      Float
+    </button>
+    <!-- <button
+      mat-raised-button
+      color="primary"
+      (click)="findInvalidControls()"
+      type="button"
+    >
+      Invalid
+    </button> -->
+  </mat-card>
+</form>
