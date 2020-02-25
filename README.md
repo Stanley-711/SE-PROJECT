@@ -26,25 +26,3 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
-
-
-
-git clone https://github.com/selvina711/SE-project.git
-
-cd career_Job_Recommendation_system 
-npm install
-
-cd career_Job_Recommendation_system 
-.env
-
-PORT=3000
-FROM_EMAIL='selvinastanley982@gmail.com'
-PASS='Sony@711'
-MONGO_URI='mongodb://localhost:27017/srs'
-
-mongod --port 27017 --dbpath=.data
-
-npm run dev
-
-ng serve --open
-
